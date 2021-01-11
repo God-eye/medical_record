@@ -9,9 +9,9 @@ on:
   release:
     types:
       - created
-        
-    
+
 jobs:
+
   # This job will:
   #   * deploy a draft every time there is a pull request created or synchronized that is not on master branch
   #   * comment on that pull request with the deploy URL
@@ -28,13 +28,20 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "12.x"
-          
+
+      # check pwd
+      - run: pwd
+#         working-directory: dev
         # Install all dependencies
       - run: npm install
-      - run: pwd    
-      # This triggers `gatsby build` script in "package.json"
+#         working-directory: dev
+
+      # This triggers `react build` script in "package.json"
       - run: npm run build
-  
+#         working-directory: dev
+        env:
+         CI: false
+
       - name: Deploy draft to Netlify on PR
         uses: South-Paw/action-netlify-deploy@v1.0.4
         with:
@@ -44,7 +51,7 @@ jobs:
           build-dir: './build'
           draft: true
           comment-on-pull-request: true
-    
+
   # This job will:
   #   * deploy a draft every time there is a commit that is not on master branch
   #   * comment on that commit with the deploy URL
@@ -61,13 +68,19 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "12.x"
-          
+
+            # check pwd
+      - run: pwd
+#         working-directory: dev
         # Install all dependencies
       - run: npm install
-      - run: pwd
-      # This triggers `gatsby build` script in "package.json"
-#       - run: cd ./frontend && npm install --save
+#         working-directory: dev
+
+      # This triggers `react build` script in "package.json"
       - run: npm run build
+#         working-directory: dev
+        env:
+         CI: false
 
       - name: Deploy draft to Netlify on push
         uses: South-Paw/action-netlify-deploy@v1.0.4
@@ -96,12 +109,19 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "12.x"
-          
+
+          # check pwd
+      - run: pwd
+#         working-directory: dev
         # Install all dependencies
       - run: npm install
-      - run: pwd
-      # This triggers `gatsby build` script in "package.json"
+#         working-directory: dev
+
+      # This triggers `react build` script in "package.json"
       - run: npm run build
+#         working-directory: dev
+        env:
+         CI: false
 
       - name: Deploy production to Netlify
         uses: South-Paw/action-netlify-deploy@v1.0.4
@@ -110,4 +130,3 @@ jobs:
           netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
           build-dir: './build'
-      
