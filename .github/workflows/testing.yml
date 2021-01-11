@@ -20,9 +20,9 @@ jobs:
     - name: Install Google Chrome # Using shell script to install Google Chrome
       run: |
        wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-       dpkg -i google-chrome-stable_current_amd64.deb
+       sudo dpkg -i google-chrome-stable_current_amd64.deb
        
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew # give permission to Gradle to run the commands
     - name: Build with Gradle
-      run: ./gradlew test --info # Run our tests using Gradle
+      run: ./selenium-testing test --info # Run our tests using Gradle
