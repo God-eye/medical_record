@@ -8,7 +8,7 @@ import axios from 'axios';
 import fire from '../fire.js';
 import Navigation2 from './Navigation2';
 
-const url = 'http://localhost:8080/api/addform'
+const url = 'https://server-ee.herokuapp.com/api/addform'
 
 function AddForm() {
 
