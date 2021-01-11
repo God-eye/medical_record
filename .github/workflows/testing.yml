@@ -29,8 +29,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1.2.0
       - name: Install
-        run: yarn
-      - name: Lint
-        run: yarn lint
+        run: cd selenium-testing && npm install
+      - name: Build
+        run: cd selenium-testing &&  npm run build 
       - name: Test
-        run: yarn test
+        run: cd selenium-testing && npm start        
