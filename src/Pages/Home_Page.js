@@ -3,7 +3,7 @@ import Prescriptions from '../Component/Prescriptions.js'
 import fire from '../fire'
 import axios from 'axios';
 import Navigation2 from '../Component/Navigation2';
-const url = 'http://localhost:8080/api/search';
+const url = 'https://server-ee.herokuapp.com/api/search';
 
 function Home_Page() {
     const [mediData, setMediData] = useState([]);
