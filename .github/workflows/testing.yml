@@ -30,7 +30,7 @@ jobs:
         uses: actions/checkout@v1.2.0
       - name: Install
         run: cd selenium-testing && npm install
-      - name: Build
-        run: cd selenium-testing &&  npm run build 
+#       - name: Build
+#         run: cd selenium-testing &&  npm run build 
       - name: Test
         run: cd selenium-testing && npm start        
