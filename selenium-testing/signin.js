@@ -1,4 +1,4 @@
-let credentials = require("./credentials.json"); 
+let credentials = require("./signcredentials.json"); 
 
 for(var i = 0; i<credentials.length; i++){
 
@@ -42,7 +42,7 @@ for(var i = 0; i<credentials.length; i++){
         }) 
         .then(function () { 
             console.log( 
-                "Username entered successfully in"
+                "Username entered successfully"
             ); 
     
 
