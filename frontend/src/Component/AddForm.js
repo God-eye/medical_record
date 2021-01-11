@@ -83,7 +83,9 @@ function AddForm() {
 			doctype: doctorType,
 			description: description,
 			medicines: medicinesArray
-		})
+		});
+
+
 		// history.push('/home');
 	}
 
@@ -106,33 +108,29 @@ function AddForm() {
 								value={diseaseName} onChange={(e) => setDiseaseName(e.target.value)} />
 						</Form.Group>
 
-						<Form.Group controlId="formBasicName">
+						<Form.Group controlId="formBasicDate">
 							<Form.Label>Date of visit</Form.Label>
 							<Form.Control type="date" placeholder="Enter Doctor's Name"
 								value={date} onChange={(e) => setDate(e.target.value)} />
 						</Form.Group>
 
-						<Form.Group>
+						<Form.Group controlId="doctorType">
 							<Form.Label>Doctor's Type</Form.Label>
 							<Form.Control as="select" value={doctorType} onChange={(e) => setDoctorType(e.target.value)}>
-								<option>General Physician </option>
-								<option>Paediatrician</option>
-								<option>Gynaecologist</option>
-								<option>Cardiologist</option>
-								<option>Others</option>
+								<option id="1">General Physician </option>
+								<option id="2">Paediatrician</option>
+								<option id="3">Gynaecologist</option>
+								<option id="4">Cardiologist</option>
+								<option id="5">Others</option>
 							</Form.Control>
 						</Form.Group>
 
-						<Form.Group controlId="exampleForm.ControlTextarea1">
+						<Form.Group controlId="textarea">
 							<Form.Label>Disease Description</Form.Label>
 							<Form.Control as="textarea" rows={4}
 								value={description} onChange={(e) => setDescription(e.target.value)} />
 						</Form.Group>
 
-						<Form.Group controlId="">
-							<Form.Label>Add photo of Prescription</Form.Label>
-							<Form.Control type="file" />
-						</Form.Group>
 						{inputFields.map((input,i) => (
 							<div >
 								<Form.Group className="form-inline" key={i}>
@@ -140,7 +138,7 @@ function AddForm() {
 										 placeholder="Medicines Name" className="col-sm-4 mr-2 mt-3" />
 									<Form.Control type="number" min="1" onChange= {(e) => setInputObject({mediname: inputObject.mediname, days1 : e.target.value})}
 										 placeholder="No of Days" className="col-sm-3 mr-2 mt-3" />
-									<Form.Control type="number" min="1" onChange= {(e) => setInputObject({mediname: inputObject.mediname, days1: inputObject.days1, perday1 : e.target.value})}
+									<Form.Control id="perday" type="number" min="1" onChange= {(e) => setInputObject({mediname: inputObject.mediname, days1: inputObject.days1, perday1 : e.target.value})}
 										 placeholder="Per-Day" className="col-sm-3 mt-3" />
 									<img className="delete_img" src={delete_img} onClick={() => deleteItem(i)} alt = ""/>
 								</Form.Group>
