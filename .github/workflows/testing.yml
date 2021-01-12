@@ -32,5 +32,10 @@ jobs:
         run: cd selenium-testing && npm install
 #       - name: Build
 #         run: cd selenium-testing &&  npm run build 
-      - name: Test
-        run: cd selenium-testing && npm start        
+      - name: Test 1
+        run: cd selenium-testing && node signup.js  
+      - name: Test 2
+        run: cd selenium-testing && node signin.js  
+      - name: Test 3
+        run: cd selenium-testing && node addform.js 
+                  
